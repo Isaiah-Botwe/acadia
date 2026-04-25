@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started - Swiftlink Network Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+  <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_35%),linear-gradient(180deg,_#020617,_#0b1220)]">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-500 text-slate-950 font-bold">S</div>
+        <div>
+          <p class="text-sm uppercase tracking-[0.32em] text-cyan-300">Swiftlink</p>
+          <p class="text-base font-semibold">Network Solutions</p>
+        </div>
+      </div>
+      <a href="index.html" class="rounded-full bg-slate-800 px-5 py-3 text-sm font-semibold text-slate-100 shadow-lg shadow-slate-900/20 transition hover:bg-slate-700">Back Home</a>
+    </nav>
+
+    <main class="mx-auto max-w-4xl px-6 pb-20 lg:px-8">
+      <section class="py-20">
+        <div class="bg-slate-900/70 border border-slate-700 rounded-3xl p-8 shadow-xl shadow-slate-950/40">
+          <h1 class="text-4xl font-bold text-white mb-4">Get Started with Swiftlink</h1>
+          <p class="text-slate-300 mb-8">Tell us your details and the type of internet connection you want. Our team will follow up with a tailored Starlink access point solution.</p>
+
+          <form id="contactForm" action="mailto:bryantidan8540@gmail.com" method="post" enctype="text/plain" class="space-y-6" onsubmit="return submitContactForm(event)">
+            <div>
+              <label class="block text-slate-300 mb-2" for="fullName">Full Name</label>
+              <input id="fullName" name="Full Name" type="text" required class="w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-2" for="email">Email Address</label>
+              <input id="email" name="Email" type="email" required class="w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-2" for="phone">Phone Number</label>
+              <input id="phone" name="Phone" type="tel" required class="w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-2" for="connectionType">Type of Internet Connection</label>
+              <select id="connectionType" name="Connection Type" required class="w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20">
+                <option value="Starlink" selected>Starlink</option>
+                <option value="Fiber">Fiber</option>
+                <option value="Wireless">Wireless</option>
+                <option value="Hybrid">Hybrid</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-2" for="details">Connection Details</label>
+              <textarea id="details" name="Connection Details" rows="5" class="w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" placeholder="Tell us about your location, number of users, and required bandwidth"></textarea>
+            </div>
+            <button type="submit" class="inline-flex items-center justify-center rounded-full bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-400">Submit Request</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    function submitContactForm(event) {
+      event.preventDefault();
+      var form = document.getElementById('contactForm');
+      var fullName = form.fullName.value.trim();
+      var email = form.email.value.trim();
+      var phone = form.phone.value.trim();
+      var connectionType = form.connectionType.value;
+      var details = form.details.value.trim();
+      var body = 'Full Name: ' + fullName + '\n'
+        + 'Email: ' + email + '\n'
+        + 'Phone: ' + phone + '\n'
+        + 'Connection Type: ' + connectionType + '\n'
+        + 'Connection Details: ' + details;
+      var mailtoLink = 'mailto:bryantidan8540@gmail.com'
+        + '?subject=' + encodeURIComponent('Swiftlink Request from ' + fullName)
+        + '&body=' + encodeURIComponent(body);
+      window.location.href = mailtoLink;
+      setTimeout(function() {
+        window.location.href = 'tel:+2335506856';
+      }, 500);
+      return false;
+    }
+  </script>
+</body>
+</html>
